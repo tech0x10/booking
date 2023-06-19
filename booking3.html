@@ -48,13 +48,13 @@
                                         <input type="text" id="Phone" class="form-control" required>
                                     </div>
                                     <div class="country mt-3">
+                                        
                                         <label for="country" class="col-form-label">Country</label>
-                                        <input type="text" id="country" class="form-control country-input hidden" placeholder="Select a country" required>
+                                        <input type="text" id="country" class="form-control country-input" placeholder="Select a country" required>
 
                                     </div>
                                     <div class="text-area mt-3">
-                                        <label for="Text-area" class="col-form-label">Your Summarized One Question For
-                                            Dua</label>
+                                        <label for="Text-area" class="col-form-label">Your Issue</label>
                                         <textarea class="form-control"></textarea>
                                     </div>
                                     <div class="submit mt-3">
@@ -73,15 +73,17 @@
 $("#country").countrySelect({
   preferredCountries: [],
   responsiveDropdown: true
-}).on('change', function () {
-  if (this.value) {
-    $(this).removeClass('hidden');
-  } else {
-    $(this).addClass('hidden');
-  }
-});
+})
+var countryInput = document.getElementById('country');
+        countryInput.addEventListener('keydown', function (event) {
+            event.preventDefault();
+        });
 
-
+        // Enable the dropdown menu when clicking on the country input field
+        var countryDropdownButton = document.getElementById('countryDropdownButton');
+        countryInput.addEventListener('click', function () {
+            countryDropdownButton.disabled = false;
+        });
 
             $("#country").countrySelect();
 
@@ -141,6 +143,8 @@ $("#country").countrySelect({
   }
 });
 
+var inputfield=document.getElementsByClassName(country-input)
+inputfield.innerHTML.attribute=disabled
 
 
 
